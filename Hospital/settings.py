@@ -75,14 +75,34 @@ WSGI_APPLICATION = 'Hospital.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': {},
+    'postgres': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hospital',
         'USER':'postgres',
         'PASSWORD':'1234',
         'HOST':'localhost',
         'DATABASE_PORT':'5432',
+    },
+
+    'mysql': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hospital',
+        'USER':'root',
+        'PASSWORD':'',
+        'HOST':'localhost',
+        'DATABASE_PORT':'3306',
+    },
+    
+    'maria': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hospital',
+        'USER':'root',
+        'PASSWORD':'',
+        'HOST':'localhost',
+        'DATABASE_PORT':'3307',
     }
+
 }
 
 # Password validation
