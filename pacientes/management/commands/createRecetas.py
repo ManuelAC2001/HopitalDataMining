@@ -66,3 +66,5 @@ class Command(BaseCommand):
                 medicamento_id = fake_medicamento.unique.medicamento(bd)
                 medicamento = Medicamento.objects.using(bd).get(pk=medicamento_id)
                 receta.medicamentos.add(medicamento)
+        
+            self.stdout.write(self.style.SUCCESS('%s.-Receta agregada correctamente' % (i+1)))

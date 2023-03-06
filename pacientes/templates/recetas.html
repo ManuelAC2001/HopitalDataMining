@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <h1 class="fs-1">Lista de recetas ⚕ </h1>
+
+        <section class="my-5">
+            <div class="table-responsive fs-5 text-center text-capitalize">
+                <table class="table table-striped table-hover table-bordered border-primary-subtle align-middle caption-top">
+                    <thead class="table-light">
+                        <caption class="text-center text-uppercase fs-5 border border-bottom-0 border-primary-subtle fw-bold">
+                            Tabla de la base de datos en mysql 🐬
+                        </caption>
+                        <tr>
+                            <th>id</th>
+                            <th>fecha</th>
+                            <th>Hora</th>
+                            <th>Dosis</th>
+                            <th>Paciente</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+
+                        {% for receta in recetas_mysql  %}
+                        <tr class="table-primary" >
+                            <td scope="row">{{receta.pk}}</td>
+                            <td>{{receta.fecha_receta}}</td>
+                            <td>{{receta.hora_receta}}</td>
+                            <td>{{receta.dosis_medicamento}}</td>
+                            <td>{{receta.paciente}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th class="" colspan="5">Medicamentos usados en la receta</th>
+                        </tr>
+                        <tr class="fs-6">
+                            <td colspan="5">
+                                <ul class="list-group">
+                                {% for medicamento in receta.medicamentos.all %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                      {{medicamento}}
+                                      <span class="badge bg-primary rounded-pill"><i class="bi bi-capsule"></i></span>
+                                    </li>
+                                {% endfor %}
+                                </ul>     
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="my-5">
+            <div class="table-responsive fs-5 text-center text-capitalize">
+                <table class="table table-striped table-hover table-bordered border-primary-subtle align-middle caption-top">
+                    <thead class="table-light">
+                        <caption class="text-center text-uppercase fs-5 border border-bottom-0 border-primary-subtle fw-bold">
+                            Tabla de la base de datos en postgresql 🐘
+                        </caption>
+                        <tr>
+                            <th>id</th>
+                            <th>fecha</th>
+                            <th>Hora</th>
+                            <th>Dosis</th>
+                            <th>Paciente</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+
+                        {% for receta in recetas_pg   %}
+                        <tr class="table-primary" >
+                            <td scope="row">{{receta.pk}}</td>
+                            <td>{{receta.fecha_receta}}</td>
+                            <td>{{receta.hora_receta}}</td>
+                            <td>{{receta.dosis_medicamento}}</td>
+                            <td>{{receta.paciente}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th class="" colspan="5">Medicamentos usados en la receta</th>
+                        </tr>
+                        <tr class="fs-6">
+                            <td colspan="5">
+                                <ul class="list-group">
+                                {% for medicamento in receta.medicamentos.all %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                      {{medicamento}}
+                                      <span class="badge bg-primary rounded-pill"><i class="bi bi-capsule"></i></span>
+                                    </li>
+                                {% endfor %}
+                                </ul>     
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="my-5">
+            <div class="table-responsive fs-5 text-center text-capitalize">
+                <table class="table table-striped table-hover table-bordered border-primary-subtle align-middle caption-top">
+                    <thead class="table-light">
+                        <caption class="text-center text-uppercase fs-5 border border-bottom-0 border-primary-subtle fw-bold">
+                            Tabla de la base de datos en mariadb 🦦
+                        </caption>
+                        <tr>
+                            <th>id</th>
+                            <th>fecha</th>
+                            <th>Hora</th>
+                            <th>Dosis</th>
+                            <th>Paciente</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+
+                        {% for receta in recetas_mdb %}
+                        <tr class="table-primary" >
+                            <td scope="row">{{receta.pk}}</td>
+                            <td>{{receta.fecha_receta}}</td>
+                            <td>{{receta.hora_receta}}</td>
+                            <td>{{receta.dosis_medicamento}}</td>
+                            <td>{{receta.paciente}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th class="" colspan="5">Medicamentos usados en la receta</th>
+                        </tr>
+                        <tr class="fs-6">
+                            <td colspan="5">
+                                <ul class="list-group">
+                                {% for medicamento in receta.medicamentos.all %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                      {{medicamento}}
+                                      <span class="badge bg-primary rounded-pill"><i class="bi bi-capsule"></i></span>
+                                    </li>
+                                {% endfor %}
+                                </ul>     
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+        
+</body>
+</html>

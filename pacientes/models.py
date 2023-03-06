@@ -30,7 +30,7 @@ class Paciente(models.Model):
     alergias_paciente = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nombre_paciente
+        return self.nombre_paciente + " " + self.ape_ma_paciente + " " + self.ape_ma_paciente 
     
 
     class Meta:

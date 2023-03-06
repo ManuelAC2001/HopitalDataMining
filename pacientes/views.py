@@ -3,7 +3,6 @@ from django.views.generic.base import TemplateView
 from pacientes.models import *
 
 class HospitalView(TemplateView):
-    
     template_name = "pacientes.html"
 
     def get_context_data(self, **kwargs):
@@ -22,6 +21,17 @@ class MedicamentosView(TemplateView):
         context["medicamentos_pg"] = Medicamento.objects.using('postgres') 
         context["medicamentos_mdb"] = Medicamento.objects.using('mariadb') 
         return context
+
+class RecetasView(TemplateView):
+    template_name = "recetas.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["recetas_mysql"] = Receta.objects.using('mysql') 
+        context["recetas_pg"] = Receta.objects.using('postgres') 
+        context["recetas_mdb"] = Receta.objects.using('mariadb') 
+        return context
+    
     
         
 

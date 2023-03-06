@@ -5,5 +5,6 @@ app_name = 'pacientes'
 
 urlpatterns = [
     path('', views.HospitalView.as_view(), name="pacientes"),
-    path('medicamentos', views.MedicamentosView.as_view(), name="pacientes"),
+    path('medicamentos', views.MedicamentosView.as_view(), name="medicamentos"),
+    path('recetas', views.RecetasView.as_view(), name="recetas"),
 ]
