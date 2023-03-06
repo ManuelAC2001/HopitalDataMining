@@ -29,6 +29,10 @@ class Paciente(models.Model):
     padecimientos_paciente = models.CharField(max_length=50)
     alergias_paciente = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.nombre_paciente
+    
+
     class Meta:
         db_table = "pacientes"
 
