@@ -94,7 +94,7 @@ DATABASES = {
         'DATABASE_PORT':'3306',
     },
     
-    'maria': {
+    'mariadb': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hospital_mdb',
         'USER':'root',
