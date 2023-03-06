@@ -96,11 +96,11 @@ DATABASES = {
     
     'maria': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hospital',
+        'NAME': 'hospital_mdb',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',
-        'DATABASE_PORT':'3307',
+        'DATABASE_PORT':'3306',
     }
 
 }
